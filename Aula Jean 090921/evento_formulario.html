@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Eventos com Formulário</title>
+		
+		<script type="text/javascript">
+		
+        
+            var v1 = 0, v2 = 0;
+        
+
+            function ObterValores () {
+                v1 = document.getElementById("valor1").value;
+                v2 = document.getElementById("valor2").value;
+            }
+
+
+            function DadosValidos () {
+
+                if (v1.trim() == "" || v2.trim() == "") {
+                    alert("O preenchimento dos campos é obrigatório!");
+                    return false;
+                }
+
+                if(isNaN(v1) || isNaN(v2)) {
+                    alert("Por favor, insira somente número!");
+                   return false;
+                }
+
+                return true
+            }
+
+            function multiplicar () {
+
+                ObterValores();
+                DadosValidos();
+
+                document.getElementById("resultado").value = v1 * v2;
+            }
+
+            function subtrair () {
+
+                ObterValores();
+                DadosValidos();
+
+                document.getElementById("resultado").value = v1 - v2;
+            }
+		
+		</script>		
+	</head>
+
+	<body>
+		
+		<form>
+			<p>
+				<label>Valor 1</label>
+				<input type="text" id="valor1"  />
+			</p>
+			<p>
+				<label>Valor 2</label>
+				<input type="text" id="valor2"  />
+			</p>
+			<p>
+				<label>Resultado</label>
+				<input type="text" id="resultado" disabled />
+			</p>	
+
+			<p>				
+				<input type="button"  value="Multiplicar" onclick="multiplicar()" />
+				<input type="button" value="Subtrair" onclick="subtrair()" />				
+			</p>				
+		
+			<hr />
+			
+			<p>
+				<label>Nome</label>
+				<input type="text" id="nome"  />
+			</p>
+			<p>
+				<label>Sobrenome</label>
+				<input type="text" id="sobrenome" />
+			</p>
+			<p>
+				<label>Nome completo</label>
+				<input type="text" id="nomeCompleto" disabled />
+			</p>		
+
+			<hr />
+			
+			<p>
+				<label>Senha</label>
+				<input type="password" id="senha" />
+			</p>
+					
+		</form>
+
+	</body>
+</html>
